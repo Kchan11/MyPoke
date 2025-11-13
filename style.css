@@ -65,7 +65,7 @@ body {
 /* スマートフォン用のスタイル */
 @media (max-width: 600px) {
     .pokemon-card {
-        width: 120px; /* カードの幅を少し小さくする */
+        width: 80px; /* カードの幅を少し小さくする */
     }
 
     .main-header h1 {
