@@ -11,11 +11,11 @@ body {
 
 
 .main-header {
-    display: flex;
+    
     align-items: center;
     justify-content: center;
     gap: 100px;
-    
+    text-align: center;
 }
 
 #pokemon-container {
@@ -32,7 +32,7 @@ body {
     padding: 10px;
     text-align: center;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    width: 150px; /* カードの幅を調整 */
+    width: 100px; /* カードの幅を調整 */
     flex-shrink: 0; /* カードが縮まないようにする */
     cursor: pointer; /* カード全体がクリック可能であることを示す */
     transition: background-color 0.3s, border-color 0.3s, border-style 0.3s; /* 背景色と縁取りの変化を滑らかにする */
