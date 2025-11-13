@@ -1,0 +1,63 @@
+body {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-size: 16px;
+}
+
+
+
+.font-roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    
+}
+
+#pokemon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* カード間のスペース */
+    padding: 20px;
+}
+
+.pokemon-card {
+    /* border: 1px solid #ccc; */ /* JavaScriptで制御するため削除 */
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    width: 150px; /* カードの幅を調整 */
+    flex-shrink: 0; /* カードが縮まないようにする */
+    cursor: pointer; /* カード全体がクリック可能であることを示す */
+    transition: background-color 0.3s, border-color 0.3s, border-style 0.3s; /* 背景色と縁取りの変化を滑らかにする */
+}
+
+.is-shiny-card {
+    background-color: #f9fdcb; /* 色違いの時の背景色 */
+}
+
+.pokemon-card img {
+    max-width: 100px; /* 画像の最大幅を調整 */
+    height: auto;
+}
+
+.pokemon-card .poke-no {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.pokemon-card .poke-name {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.pokemon-card .poke-type {
+    font-size: 0.8em;
+    color: #333;
+}
