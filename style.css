@@ -3,7 +3,11 @@ body {
     font-size: 16px;
 }
 
-
+.m-plus-rounded-1c-regular {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 .font-roboto {
     font-family: 'Roboto', sans-serif;
@@ -11,11 +15,7 @@ body {
 
 
 .main-header {
-    
-    align-items: center;
-    justify-content: center;
-    gap: 100px;
-    text-align: center;
+    text-align: center; /* 中央揃えにする */
 }
 
 #pokemon-container {
@@ -32,14 +32,14 @@ body {
     padding: 10px;
     text-align: center;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    width: 100px; /* カードの幅を調整 */
+    width: 150px; /* カードの幅を調整 */
     flex-shrink: 0; /* カードが縮まないようにする */
     cursor: pointer; /* カード全体がクリック可能であることを示す */
     transition: background-color 0.3s, border-color 0.3s, border-style 0.3s; /* 背景色と縁取りの変化を滑らかにする */
 }
 
 .is-shiny-card {
-    background-color: #f9fdcb; /* 色違いの時の背景色 */
+    background-color: #f0f0f0; /* 色違いの時の背景色 */
 }
 
 .pokemon-card img {
@@ -60,4 +60,19 @@ body {
 .pokemon-card .poke-type {
     font-size: 0.8em;
     color: #333;
+}
+
+/* スマートフォン用のスタイル */
+@media (max-width: 600px) {
+    .pokemon-card {
+        width: 120px; /* カードの幅を少し小さくする */
+    }
+
+    .main-header h1 {
+        font-size: 1.8em; /* ヘッダーの文字サイズを調整 */
+    }
+
+    .main-header h2 {
+        font-size: 1.2em; /* サブヘッダーの文字サイズを調整 */
+    }
 }
