@@ -14,7 +14,12 @@
 <body>
     <header class="main-header">
         <h1>ポケモンZA色違い図鑑</h1>
-        <h2 id="dynamic-text"></h2>
+        <div class="header-container">
+            <h2 id="dynamic-text"></h2>
+            <div style="text-align: right;">
+            <button id="btn1" class="NotAquired" onclick="DisplayNotAquired()">未獲得のみ表示</button>
+            </div>
+        </div>
     </header>
     <div id="pokemon-container"></div>
     <script src="a.js"></script>
