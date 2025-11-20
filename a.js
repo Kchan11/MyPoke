@@ -16,7 +16,7 @@ function countShinyPokemon(){
 }
 
 function updateShinyCount(){
-// 動的なテキストを設定
+// 色違いの所持数を表示
 count = countShinyPokemon();
 dynamicText.textContent = `${count}/` + pokeNoArr.length;
 }
@@ -54,6 +54,13 @@ function getRandomColor() {
     }
     return color;
 }
+
+function gotoTop(){
+    //ボタンを押すと先頭に戻る
+    window.scrollTo({top:0,behavior:"smooth"});
+}
+
+
 
 // ポケモンカードを生成してページに追加する関数
 async function createPokemonCard(pokeNo) {
@@ -137,6 +144,36 @@ async function createPokemonCard(pokeNo) {
     }
 }
 
+function searchPokemon(pokename){
+    //入力文字列に(部分)一致するカードだけ表示
+    const cards = document.querySelectorAll('.pokemon-card');
+    const searchTerm = pokename.replace( /[\u3042-\u3093]/g, 
+        m => String.fromCharCode(m.charCodeAt(0) + 96)
+    );
+
+    cards.forEach(card => {
+        const nameElement = card.querySelector('.poke-name');
+        const pokemonName = nameElement ? nameElement.textContent : ''; // Get name as is
+        
+        // Check if the search term is present in the Pokémon name
+        if (pokemonName.includes(searchTerm)) {
+            card.classList.remove('is-hidden-by-search'); // Show the card
+        } else {
+            card.classList.add('is-hidden-by-search'); // Hide the card
+        }
+    });
+}
+
+function clearSearch() {
+    // Clear the search filter
+    const cards = document.querySelectorAll('.pokemon-card');
+    cards.forEach(card => {
+        card.classList.remove('is-hidden-by-search');
+    });
+    // Clear the search box value
+    document.getElementById('search-box').value = '';
+}
+
 // メイン処理
 async function main() {
 
@@ -148,6 +185,20 @@ async function main() {
     const cards = await Promise.all(cardPromises);
     cards.forEach(card => {
         if (card) pokemonContainer.appendChild(card);
+    });
+
+    //検索ボックスのイベントリスナーを設定
+    const text_form = document.getElementById('search-box');
+    text_form.addEventListener('keydown',(e) => {
+        if(e.key === "Enter"){
+            searchPokemon(text_form.value);
+        }
+    });
+
+    // リセットボタンのイベントリスナーを設定
+    const resetButton = document.getElementById('reset');
+    resetButton.addEventListener('click', () => {
+        clearSearch();
     });
 
     // 2. ボタンのイベントリスナーを設定
@@ -163,6 +214,8 @@ async function main() {
         } else {
             displayToggleButton.textContent = "未獲得のみ表示";
         }
+
+        
     });
 }
 

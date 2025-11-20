@@ -10,17 +10,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="button.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
     <header class="main-header">
         <h1>ポケモンZA色違い図鑑</h1>
         <div class="header-container">
             <h2 id="dynamic-text"></h2>
-            <div style="text-align: right;">
-            <button id="btn1" class="NotAquired" onclick="DisplayNotAquired()">未獲得のみ表示</button>
+            <div class="controls-container">
+                <input type="text" id="search-box" placeholder="ポケモンを検索...">
+                <button id="reset" class="button-reset">
+                    <span class ="material-icons" >delete</span>
+                </button>
             </div>
         </div>
     </header>
+    <div class="bottom-buttons-container">
+        <button id="btn1" class="NotAquired" onclick="DisplayNotAquired()">未獲得のみ表示</button>
+        <button id="btn2" class="button_gototop" onclick="gotoTop()">先頭に戻る</button>
+    </div>
     <div id="pokemon-container"></div>
     <script src="a.js"></script>
 </body>
